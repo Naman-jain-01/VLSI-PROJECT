@@ -19,7 +19,7 @@ wire clk_6_25MHz = clk_div[3];
 
 // OLED interface wires
 wire frame_begin, sending_pixels, sample_pixel;
-wire [12:0] pixel_index;
+wire [11:0] pixel_index;
 reg [15:0] pixel_data;
 
 // Instantiate the OLED display module
@@ -43,15 +43,15 @@ Oled_Display oled(
 
 // Pixel data generation for "NAMAN JAIN"
 always @* begin
-    // Calculate row and column from pixel_index (96 columns, 64 rows)
-    integer row = pixel_index / 96;
-    integer column = pixel_index % 96;
+    // Calculate row and column from pixel_index (128 columnspatient, 32 rows)
+    integer row = pixel_index / 128;
+    integer column = pixel_index % 128;
     
-    // Text area: 10 chars * 8 pixels = 80 pixels wide, centered at column 8 to 87, rows 28 to 35
-    if (row >= 28 && row <= 35 && column >= 8 && column <= 87) begin
-        integer char_index = (column - 8) / 8;         // Which character (0 to 9)
-        integer local_column = (column - 8) % 8;       // Column within character (0 to 7)
-        integer local_row = row - 28;                  // Row within character (0 to 7)
+    // Text area: 10 chars * 8 pixels = 80 pixels wide, centered at column 24 to 103, rows 12 to 19
+    if (row >= 12 && row <= 19 && column >= 24 && column <= 103) begin
+        integer char_index = (column - 24) / 8;        // Which character (0 to 9)
+        integer local_column = (column - 24) % 8;      // Column within character (0 to 7)
+        integer local_row = row - 12;                  // Row within character (0 to 7)
         reg [7:0] bitmap_row;
         
         case (char_index)

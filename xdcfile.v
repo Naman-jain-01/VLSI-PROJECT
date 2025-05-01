@@ -1,24 +1,15 @@
 # Clock signal
-set_property PACKAGE_PIN W5 [get_ports CLK100MHZ]
-set_property IOSTANDARD LVCMOS33 [get_ports CLK100MHZ]
+set_property -dict { PACKAGE_PIN W5   IOSTANDARD LVCMOS33 } [get_ports CLK100MHZ]
 create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports CLK100MHZ]
 
-# Center button for reset
-set_property PACKAGE_PIN U18 [get_ports btnC]
-set_property IOSTANDARD LVCMOS33 [get_ports btnC]
+# Center Button (Reset)
+set_property -dict { PACKAGE_PIN U18  IOSTANDARD LVCMOS33 } [get_ports btnC]
 
-# Pmod Header JC for OLED
-set_property PACKAGE_PIN K17 [get_ports cs]
-set_property IOSTANDARD LVCMOS33 [get_ports cs]
-set_property PACKAGE_PIN M18 [get_ports sdin]
-set_property IOSTANDARD LVCMOS33 [get_ports sdin]
-set_property PACKAGE_PIN N17 [get_ports sclk]
-set_property IOSTANDARD LVCMOS33 [get_ports sclk]
-set_property PACKAGE_PIN P18 [get_ports d_cn]
-set_property IOSTANDARD LVCMOS33 [get_ports d_cn]
-set_property PACKAGE_PIN L17 [get_ports resn]
-set_property IOSTANDARD LVCMOS33 [get_ports resn]
-set_property PACKAGE_PIN M19 [get_ports vccen]
-set_property IOSTANDARD LVCMOS33 [get_ports vccen]
-set_property PACKAGE_PIN P17 [get_ports pmoden]
-set_property IOSTANDARD LVCMOS33 [get_ports pmoden]
+# Pmod Header JA
+set_property -dict { PACKAGE_PIN J18  IOSTANDARD LVCMOS33 } [get_ports cs]
+set_property -dict { PACKAGE_PIN E19  IOSTANDARD LVCMOS33 } [get_ports sdin]
+set_property -dict { PACKAGE_PIN D18  IOSTANDARD LVCMOS33 } [get_ports sclk]
+set_property -dict { PACKAGE_PIN F18  IOSTANDARD LVCMOS33 } [get_ports d_cn]
+set_property -dict { PACKAGE_PIN E18  IOSTANDARD LVCMOS33 } [get_ports resn]
+set_property -dict { PACKAGE_PIN G17  IOSTANDARD LVCMOS33 } [get_ports vccen]
+set_property -dict { PACKAGE_PIN G18  IOSTANDARD LVCMOS33 } [get_ports pmoden]
